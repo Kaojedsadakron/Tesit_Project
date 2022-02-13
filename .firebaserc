@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "data-analysis-622d6": {
+      "hosting": {
+        "tesitproject": [
+          "data-analysis-622d6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "data-analysis-622d6"
+  }
+}
