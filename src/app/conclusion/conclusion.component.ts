@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Papa } from 'ngx-papaparse';
-import { CrudService } from '../service/crud.service';
+import { CrudService} from '../service/crud.service';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { user } from '../interface/user';
 @Component({
   
   selector: 'app-conclusion',
@@ -13,16 +14,26 @@ export class ConclusionComponent implements OnInit {
   userName:any;
   userAge:any;
   userAddress:any;
+  data = [{}]
 
   score:any = [];
   sum:any = [];
-  constructor(public service:CrudService) {}
+  constructor(private service:CrudService) {}
   ngOnInit(): void {
   }
   
-  createUser(){
-    this.service.addDoc(this.userName,this.userAge,this.userAddress)
+  createUser(userName:any){
+    //this.service.addDoc(this.userName,this.userAge,this.userAddress)
+    let x = this.service.getData()
+   
+      
+
+    let data = [{}]
+   
+
+    console.log("type ",userName)
   }
+  
 
   handleFileSelect(evt:any) {
     var files = evt.target.files; // FileList object

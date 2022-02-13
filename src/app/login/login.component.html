@@ -8,16 +8,16 @@
 
 <body class="text-center container">
     <main class="form-signin">
-        <form>
+        <div>
             <img src="https://seeklogo.com/images/S/school-student-ringing-logo-6A1B68CA3C-seeklogo.com.png" >
             <h1 class="fw-bold" style="margin: 20px; color: whitesmoke;">SIGN IN</h1>
 
             <div class="form-floating" style="margin-bottom: 15px;">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="email">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating" style="margin-bottom: 15px;">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
                 <label for="floatingPassword">Password</label>
             </div>
 
@@ -28,8 +28,8 @@
                 </label>
             </div>
             
-            <button routerLink="/profile" class="w-100 btn btn-lg btn-primary" type="submit">LOGIN</button>
-        </form>
+            <button routerLink="/profile" class="w-100 btn btn-lg btn-primary" type="submit" (click)="login(email,password)">LOGIN</button>
+        </div>
     </main>
 </body>
 </div>
