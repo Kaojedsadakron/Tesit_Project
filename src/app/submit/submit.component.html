@@ -1,0 +1,47 @@
+<app-top-bar></app-top-bar>
+
+
+
+
+<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg');">
+
+<div class="container text-center" style="margin-top: 50px; color: whitesmoke;">
+    <p>กรอกข้อมูล</p>
+    <div>
+    <input style="margin-bottom: 16px;" type="date" id="1_1" name="birthday">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Information Technology Security</span>
+        <input type="text" id="1_2" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Machine Learning</span>
+        <input type="text" id="1_3" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Computer Architecture</span>
+        <input type="text" id="1_4" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Microprocessor</span>
+        <input type="text"  id="1_5" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">English For Work</span>
+        <input type="text"  id="1_6" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <button [routerLink]="['/profile']" type="button" class="btn btn-danger" style="margin: 20px;">Back</button>
+    <button onclick="exportData()" type="button" class="btn btn-success" style="margin: 20px;">Submit</button>
+    <div id="results"></div>
+</div>
+</div>

@@ -1,0 +1,112 @@
+<app-top-bar></app-top-bar>
+
+<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg');">
+
+    <div class="container text-center" style="padding-top: 50px; padding-bottom: 50px; color: whitesmoke;">
+        
+        <div style="font-size: 40px;">สรุปผลข้อมูล</div>
+        <div class="profile-img text-center">
+            <img src="http://reg.pim.ac.th/studentimg/61/6152300100.jpg" alt="" width="150" height="180" style="margin-top: 30px;"/>
+        </div>
+        <div style="text-align: -webkit-center; margin-top: 30px;;">
+            <tbody>
+
+                <tr border="0">
+                    <td width="15"></td>
+                    <td valign="top" bgcolor="#F0F0FF" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000000">รหัสประจำตัว: </font>
+                    </td>
+                    <td align="LEFT" bgcolor="#F5F5FF" valign="TOP" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000080">6152300100&nbsp;</font>
+                    </td>
+                </tr>
+
+                <tr border="0">
+                    <td width="15"></td>
+                    <td valign="top" bgcolor="#F0F0FF" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000000">ชื่อ: </font>
+                    </td>
+                    <td align="LEFT" bgcolor="#F5F5FF" valign="TOP" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000080">นายเจษฎากร บุญมีประเสริฐ&nbsp;</font>
+                    </td>
+                </tr>
+
+                <tr border="0">
+                    <td width="15"></td>
+                    <td valign="top" bgcolor="#F0F0FF" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000000">คณะ: </font>
+                    </td>
+                    <td align="LEFT" bgcolor="#F5F5FF" valign="TOP" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000080">วิศวกรรมศาสตร์และเทคโนโลยี&nbsp;</font>
+                    </td>
+                </tr>
+
+                <tr border="0">
+                    <td width="15"></td>
+                    <td valign="top" bgcolor="#F0F0FF" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000000">สถานที่เรียน: </font>
+                    </td>
+                    <td align="LEFT" bgcolor="#F5F5FF" valign="TOP" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000080">สถาบันการจัดการปัญญาภิวัฒน์&nbsp;</font>
+                    </td>
+                </tr>
+
+                <tr border="0">
+                    <td width="15"></td>
+                    <td valign="top" bgcolor="#F0F0FF" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000000">สาขาวิชา: </font>
+                    </td>
+                    <td align="LEFT" bgcolor="#F5F5FF" valign="TOP" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000080">59050202 วิศวกรรมคอมพิวเตอร์&nbsp;
+                        </font>
+                    </td>
+                </tr>
+
+                <tr border="0">
+                    <td width="15"></td>
+                    <td valign="top" bgcolor="#F0F0FF" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000000">กลุ่ม: </font>
+                    </td>
+                    <td align="LEFT" bgcolor="#F5F5FF" valign="TOP" style="padding: 10px;">
+                        <font face="MS Sans Serif" size="3" color="#000080">610 CPE-PIM-G-1&nbsp;</font>
+                    </td>
+                </tr>
+            </tbody>                
+        </div>    
+
+        <div><input type="text" [(ngModel)]="userName" placeholder="Enter User Name"></div>
+        <div><input type="text" [(ngModel)]="userAge" placeholder="Enter User Age"></div>
+        <div><input type="text" [(ngModel)]="userAddress" placeholder="Enter User Address"></div>
+        <div><button (click)="createUser()">Create User</button></div>
+
+        <div>
+            Information Technology Security : <div *ngIf="score[0] == 10">ชอบเเละหลงไหลวิชานี้มากๆ</div> <div *ngIf="score[0] <= 9 && score[0] >=7">ชอบวิชานี้</div> <div *ngIf="score[0] <= 6 && score[0] >= 4">ชอบหรือไม่ชอบก็ได้</div> <div *ngIf="score[0] <= 3 && score[0] >= 0">ค่อนข้างไม่ชอบวิชานี้</div> <div *ngIf="score[0] == 0">ไม่ชอบวิชานี้มากๆ</div>
+            <div *ngIf="score[0] == 10">สามารถพัฒนาในวิชานี้ได้อย่างแน่นอน</div> <div *ngIf="score[0] <= 9 && score[0] >=7">มีแนวโน้มที่จะมีการพัฒนาในวิชาอย่างมาก</div> <div *ngIf="score[0] <= 6 && score[0] >= 4">สามารถพัฒนาในวิชานี้ได้</div> <div *ngIf="score[0] <= 3 && score[0] >= 0">มีโอกาสที่จะไม่มีการพัฒนาในวิชานี้</div> <div *ngIf="score[0] == 0">มีโอกาสอย่างมากที่จะไม่มีการพัฒาในวิชานี้</div>
+        </div>
+
+        <div>
+            Machine Learning : <div *ngIf="score[1] == 10">ชอบเเละหลงไหลวิชานี้มากๆ</div> <div *ngIf="score[1] <= 9 && score[1] >=7">ชอบวิชานี้</div> <div *ngIf="score[1] <= 6 && score[1] >= 4">ชอบหรือไม่ชอบก็ได้</div> <div *ngIf="score[1] <= 3 && score[1] >= 0">ค่อนข้างไม่ชอบวิชานี้</div> <div *ngIf="score[1] == 0">ไม่ชอบวิชานี้มากๆ</div>
+            <div *ngIf="score[1] == 10">สามารถพัฒนาในวิชานี้ได้อย่างแน่นอน</div> <div *ngIf="score[1] <= 9 && score[1] >=7">มีแนวโน้มที่จะมีการพัฒนาในวิชาอย่างมาก</div> <div *ngIf="score[1] <= 6 && score[1] >= 4">สามารถพัฒนาในวิชานี้ได้</div> <div *ngIf="score[1] <= 3 && score[1] >= 0">มีโอกาสที่จะไม่มีการพัฒนาในวิชานี้</div> <div *ngIf="score[1] == 0">มีโอกาสอย่างมากที่จะไม่มีการพัฒาในวิชานี้</div>
+        </div>
+
+        <div>
+            Computer Architecture : <div *ngIf="score[2] == 10">ชอบเเละหลงไหลวิชานี้มากๆ</div> <div *ngIf="score[2] <= 9 && score[2] >=7">ชอบวิชานี้</div> <div *ngIf="score[2] <= 6 && score[2] >= 4">ชอบหรือไม่ชอบก็ได้</div> <div *ngIf="score[2] <= 3 && score[2] >= 0">ค่อนข้างไม่ชอบวิชานี้</div> <div *ngIf="score[2] == 0">ไม่ชอบวิชานี้มากๆ</div>
+            <div *ngIf="score[2] == 10">สามารถพัฒนาในวิชานี้ได้อย่างแน่นอน</div> <div *ngIf="score[2] <= 9 && score[2] >=7">มีแนวโน้มที่จะมีการพัฒนาในวิชาอย่างมาก</div> <div *ngIf="score[2] <= 6 && score[2] >= 4">สามารถพัฒนาในวิชานี้ได้</div> <div *ngIf="score[2] <= 3 && score[2] >= 0">มีโอกาสที่จะไม่มีการพัฒนาในวิชานี้</div> <div *ngIf="score[2] == 0">มีโอกาสอย่างมากที่จะไม่มีการพัฒาในวิชานี้</div>
+        </div>
+
+        <div>
+            Microprocessor : <div *ngIf="score[3] == 10">ชอบเเละหลงไหลวิชานี้มากๆ</div> <div *ngIf="score[3] <= 9 && score[3] >=7">ชอบวิชานี้</div> <div *ngIf="score[3] <= 6 && score[3] >= 4">ชอบหรือไม่ชอบก็ได้</div> <div *ngIf="score[3] <= 3 && score[3] >= 0">ค่อนข้างไม่ชอบวิชานี้</div> <div *ngIf="score[3] == 0">ไม่ชอบวิชานี้มากๆ</div>
+            <div *ngIf="score[3] == 10">สามารถพัฒนาในวิชานี้ได้อย่างแน่นอน</div> <div *ngIf="score[3] <= 9 && score[3] >=7">มีแนวโน้มที่จะมีการพัฒนาในวิชาอย่างมาก</div> <div *ngIf="score[3] <= 6 && score[3] >= 4">สามารถพัฒนาในวิชานี้ได้</div> <div *ngIf="score[3] <= 3 && score[3] >= 0">มีโอกาสที่จะไม่มีการพัฒนาในวิชานี้</div> <div *ngIf="score[3] == 0">มีโอกาสอย่างมากที่จะไม่มีการพัฒาในวิชานี้</div>
+        </div>
+
+        <div>
+            English For Work : <div *ngIf="score[4] == 10">ชอบเเละหลงไหลวิชานี้มากๆ</div> <div *ngIf="score[4] <= 9 && score[4] >=7">ชอบวิชานี้</div> <div *ngIf="score[4] <= 6 && score[4] >= 4">ชอบหรือไม่ชอบก็ได้</div> <div *ngIf="score[4] <= 3 && score[4] >= 0">ค่อนข้างไม่ชอบวิชานี้</div> <div *ngIf="score[4] == 0">ไม่ชอบวิชานี้มากๆ</div>
+            <div *ngIf="score[4] == 10">สามารถพัฒนาในวิชานี้ได้อย่างแน่นอน</div> <div *ngIf="score[4] <= 9 && score[4] >=7">มีแนวโน้มที่จะมีการพัฒนาในวิชาอย่างมาก</div> <div *ngIf="score[4] <= 6 && score[4] >= 4">สามารถพัฒนาในวิชานี้ได้</div> <div *ngIf="score[4] <= 3 && score[4] >= 0">มีโอกาสที่จะไม่มีการพัฒนาในวิชานี้</div> <div *ngIf="score[4] == 0">มีโอกาสอย่างมากที่จะไม่มีการพัฒาในวิชานี้</div>
+        </div>
+
+
+        <input type="file" accept=".csv" multiple (change) ="handleFileSelect($event)">
+
+
+       
+</div>
