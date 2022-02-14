@@ -5,6 +5,7 @@ import {AngularFirestore} from '@angular/fire/compat/firestore'
 import { user } from '../interface/user';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { runInThisContext } from 'vm';
+import { Observable } from 'rxjs';
 @Component({
   
   selector: 'app-conclusion',
@@ -18,16 +19,26 @@ export class ConclusionComponent implements OnInit {
   userAddress:any;
   data = [{}]
   finalData: any
-
+  dataaaaa:any = []
   score:any = [];
   sum:any = [];
   constructor(private service:CrudService) {}
   ngOnInit(): void {
   }
   
+  test(){
+  this.service.getFinaldata().subscribe(res =>{
+    this.dataaaaa = res
+    console.log("ttttttttt "+this.dataaaaa[3])
+    console.log(res)
+  });
+    
+  }
+
   createUser(evt:any){
     // this.service.addDoc(this.userName,this.userAge,this.userAddress)
     this.finalData = this.service.getData()
+<<<<<<< HEAD
     console.log("Test ",this.finalData = this.service.getData())
     var files = evt.target.files; // FileList object
     var subject_count = 5
@@ -40,10 +51,24 @@ export class ConclusionComponent implements OnInit {
           final_score[i-1] += parseInt(text[i])
         }
       }).then(()=> {
+=======
+    console.log(this.finalData = this.service.getData())
+    // var files = evt.target.files; // FileList object
+    // var subject_count = 5
+    // var final_score = [0,0,0,0,0] 
+    // Object.values(this.finalData).forEach((element:any) => {
+    //   element.text().then((text:any,reject:any) => {
+    //     console.log("resolve",text)
+    //     text = text.split(",")
+    //     for(var i = 1 ; i <= subject_count ; i++) {
+    //       final_score[i-1] += parseInt(text[i])
+    //     }
+    //   }).then(()=> {
+>>>>>>> 3ce35e07bc7e7931bda02c1792fb238c2b78fd88
         
-      })
-      console.log("final",final_score)
-    });
+    //   })
+    //   console.log("final",final_score)
+    // });
    
     let data = [{}]
     console.log("type ",this.finalData)
