@@ -80,8 +80,7 @@
         <div><button (click)="test()">Create User</button></div>
 
         <div>
-            Information Technology Security : <div *ngIf="score[0] == 10">ชอบเเละหลงไหลวิชานี้มากๆ</div> <div *ngIf="score[0] <= 9 && score[0] >=7">ชอบวิชานี้</div> <div *ngIf="score[0] <= 6 && score[0] >= 4">ชอบหรือไม่ชอบก็ได้</div> <div *ngIf="score[0] <= 3 && score[0] >= 0">ค่อนข้างไม่ชอบวิชานี้</div> <div *ngIf="score[0] == 0">ไม่ชอบวิชานี้มากๆ</div>
-            <div *ngIf="score[0] == 10">สามารถพัฒนาในวิชานี้ได้อย่างแน่นอน</div> <div *ngIf="score[0] <= 9 && score[0] >=7">มีแนวโน้มที่จะมีการพัฒนาในวิชาอย่างมาก</div> <div *ngIf="score[0] <= 6 && score[0] >= 4">สามารถพัฒนาในวิชานี้ได้</div> <div *ngIf="score[0] <= 3 && score[0] >= 0">มีโอกาสที่จะไม่มีการพัฒนาในวิชานี้</div> <div *ngIf="score[0] == 0">มีโอกาสอย่างมากที่จะไม่มีการพัฒาในวิชานี้</div>
+            Information Technology Security : {{sum[0]}}
         </div>
 
         <div>
