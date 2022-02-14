@@ -26,9 +26,9 @@ export class ConclusionComponent implements OnInit {
   }
   
   createUser(evt:any){
-    this.service.addDoc(this.userName,this.userAge,this.userAddress)
+    // this.service.addDoc(this.userName,this.userAge,this.userAddress)
     this.finalData = this.service.getData()
-    console.log(this.finalData = this.service.getData())
+    console.log("Test ",this.finalData = this.service.getData())
     var files = evt.target.files; // FileList object
     var subject_count = 5
     var final_score = [0,0,0,0,0] 

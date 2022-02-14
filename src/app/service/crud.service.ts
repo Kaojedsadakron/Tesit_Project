@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { getDatabase, ref, set } from "firebase/database";
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, getDocs } from 'firebase/firestore';
+import { submission } from '../interface/submission'
 import { user } from '../interface/user';
 @Injectable({
   providedIn: 'root'
@@ -25,12 +26,12 @@ export class CrudService {
     })
   }
 
-  async submitDoc(data:string) {
+  async submitDoc(data: string) {
     const db = getFirestore();
     var ref = collection(db, "submission");
     const docRef = await addDoc(
       ref, {
-      data:data
+      data: data
     }
     ).then(() => {
       alert("success");
@@ -55,7 +56,12 @@ export class CrudService {
       //console.log(obj)
 
     }); //console.log(data)
-    return data
+    let Arrayobjdata : submission [] = []
+    for (let i = 0 ; i<data.length ;i++) {
+      let objdata = JSON.parse(JSON.stringify(data[i])) as submission;
+      Arrayobjdata.push(objdata)
+    }
+    return Arrayobjdata
 
   }
 
