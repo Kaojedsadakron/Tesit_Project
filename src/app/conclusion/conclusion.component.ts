@@ -3,6 +3,8 @@ import { Papa } from 'ngx-papaparse';
 import { CrudService} from '../service/crud.service';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
 import { user } from '../interface/user';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { runInThisContext } from 'vm';
 @Component({
   
   selector: 'app-conclusion',
@@ -15,6 +17,7 @@ export class ConclusionComponent implements OnInit {
   userAge:any;
   userAddress:any;
   data = [{}]
+  finalData: any
 
   score:any = [];
   sum:any = [];
@@ -22,16 +25,28 @@ export class ConclusionComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  createUser(userName:any){
-    //this.service.addDoc(this.userName,this.userAge,this.userAddress)
-    let x = this.service.getData()
+  createUser(evt:any){
+    this.service.addDoc(this.userName,this.userAge,this.userAddress)
+    this.finalData = this.service.getData()
+    console.log(this.finalData = this.service.getData())
+    var files = evt.target.files; // FileList object
+    var subject_count = 5
+    var final_score = [0,0,0,0,0] 
+    Object.values(this.finalData).forEach((element:any) => {
+      element.text().then((text:any,reject:any) => {
+        console.log("resolve",text)
+        text = text.split(",")
+        for(var i = 1 ; i <= subject_count ; i++) {
+          final_score[i-1] += parseInt(text[i])
+        }
+      }).then(()=> {
+        
+      })
+      console.log("final",final_score)
+    });
    
-      
-
     let data = [{}]
-   
-
-    console.log("type ",userName)
+    console.log("type ",this.finalData)
   }
   
 

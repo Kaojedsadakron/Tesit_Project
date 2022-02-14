@@ -41,7 +41,7 @@ export class CrudService {
   async getData() {
     const db = getFirestore();
     let data = [{}]
-    const docSnap = await getDocs(collection(db, "user"));
+    const docSnap = await getDocs(collection(db, "submission"));
     docSnap.forEach((doc) => {
       // data.push(doc.data() as user)
       // data.forEach((user) => {
@@ -50,11 +50,11 @@ export class CrudService {
 
       let y = JSON.stringify(doc.data())
 
-      let obj: user = JSON.parse(y);
+      let obj = JSON.parse(y);
       data.push(obj)
-      console.log(obj)
+      //console.log(obj)
 
-    }); console.log(data)
+    }); //console.log(data)
     return data
 
   }
