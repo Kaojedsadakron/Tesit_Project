@@ -50,8 +50,6 @@ export class ConclusionComponent implements OnInit {
         
       })
       console.log("final",final_score)
-      this.score = final_score
-      this.sumOfSubject(final_score)
     });
    
   }

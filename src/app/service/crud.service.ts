@@ -25,6 +25,18 @@ export class CrudService {
     })
   }
 
+  async submitDoc(data:string) {
+    const db = getFirestore();
+    var ref = collection(db, "submission");
+    const docRef = await addDoc(
+      ref, {
+      data:data
+    }
+    ).then(() => {
+      alert("success");
+    })
+  }
+
   ////////////////////////////// get
   async getData() {
     const db = getFirestore();
