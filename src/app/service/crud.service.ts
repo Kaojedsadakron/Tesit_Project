@@ -3,13 +3,16 @@ import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { getDatabase, ref, set } from "firebase/database";
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, getDocs } from 'firebase/firestore';
 import { submission } from '../interface/submission'
+import { Observable } from 'rxjs';
 import { user } from '../interface/user';
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
-
-  constructor(public firestoreService: AngularFirestore) { }
+  items: Observable<any>;
+  constructor(public firestoreService: AngularFirestore) { 
+    this.items = this.firestoreService.collection('submission').valueChanges();
+  }
 
   //////////////////////////// insert
   async addDoc(name: string, age: number, address: string) {
@@ -36,6 +39,10 @@ export class CrudService {
     ).then(() => {
       alert("success");
     })
+  }
+
+  getFinaldata(){
+    return this.items
   }
 
   ////////////////////////////// get
