@@ -6,6 +6,7 @@
 <div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg');">
 
 <div class="container text-center" style="margin-top: 50px; color: whitesmoke;">
+<div style="margin: 0 10%;"> 
     <p>กรอกข้อมูล</p>
     <div>
     <input style="margin-bottom: 16px;" type="date" id="1_1" name="birthday">
@@ -40,9 +41,10 @@
             aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <button (click)="submit()" type="button" class="btn btn-success" style="margin: 20px;">Submit</button>
+    
     <button [routerLink]="['/profile']" type="button" class="btn btn-danger" style="margin: 20px;">Back</button>
-    <button onclick="exportData()" type="button" class="btn btn-success" style="margin: 20px;">Submit</button>
+    <button (click)="submit()" type="button" class="btn btn-success" style="margin: 20px;">Submit</button>
     <div id="results"></div>
+</div> 
 </div>
 </div>

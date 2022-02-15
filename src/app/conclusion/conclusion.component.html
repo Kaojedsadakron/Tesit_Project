@@ -1,14 +1,14 @@
 <app-top-bar></app-top-bar>
 
-<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg');">
+<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg'); height: 100vh;">
 
     <div class="container text-center" style="padding-top: 50px; padding-bottom: 50px; color: whitesmoke;">
         
         <div style="font-size: 40px;">สรุปผลข้อมูล</div>
         <div class="profile-img text-center">
-            <img src="http://reg.pim.ac.th/studentimg/61/6152300100.jpg" alt="" width="150" height="180" style="margin-top: 30px;"/>
+            <!-- <img src="http://reg.pim.ac.th/studentimg/61/6152300100.jpg" alt="" width="150" height="180" style="margin-top: 30px;"/> -->
         </div>
-        <div style="text-align: -webkit-center; margin-top: 30px;;">
+        <!-- <div style="text-align: -webkit-center; margin-top: 30px;;">
             <tbody>
 
                 <tr border="0">
@@ -72,27 +72,52 @@
                     </td>
                 </tr>
             </tbody>                
-        </div>    
+        </div>     -->
+        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;">ผลการวิเคราะห์ ณ วันที่</div>
+        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;" >เฉลี่ย {{dataWeek}} อาทิตย์</div>
+        <!-- <div><button (click)="getSumOfSubject()">Result</button></div> -->
 
-        <div><button (click)="getSumOfSubject()">Create User</button></div>
 
-        <div>
-            Information Technology Security : {{sum[0]}}
-        </div>
 
-        <div>
-            Machine Learning : {{sum[1]}}
-        <div>
-            Computer Architecture : {{sum[2]}}
-        </div>
-
-        <div>
-            Microprocessor : {{sum[3]}}
-        </div>
-
-        <div>
-            English For Work : {{sum[4]}}
-        </div>
+        <table style="margin-top: 10px; font-family: 'Kanit', sans-serif;" >
+            <tr >
+              <th style="text-align: center;">วิชา</th>
+              <th style="text-align: center;">ผลวิเคราะห์</th>
+              <th style="text-align: center;">ร้อยละ (%)</th>
+              <th style="text-align: center;">แนวโน้ม</th>
+            </tr>
+            <tr>
+              <td>Information Technology Security</td>
+              <td>{{sum[0]}}</td>
+              <td style="text-align: center;">{{sumHundred[0]}}%</td>
+              <td>{{sumInterest[0]}}</td>
+            </tr>
+            <tr>
+                <td>Machine Learning</td>
+                <td>{{sum[1]}}</td>
+                <td style="text-align: center;">{{sumHundred[1]}}%</td>
+                <td>{{sumInterest[1]}}</td>
+            </tr>
+            <tr>
+                <td>Computer Architecture</td>
+                <td>{{sum[2]}}</td>
+                <td style="text-align: center;">{{sumHundred[2]}}%</td>
+                <td>{{sumInterest[2]}}</td>
+            </tr>
+            <tr>
+                <td>Microprocessor</td>
+                <td>{{sum[3]}}</td>
+                <td style="text-align: center;">{{sumHundred[3]}}%</td>
+                <td>{{sumInterest[3]}}</td>
+            </tr>
+            <tr>
+                <td>English For Work</td>
+                <td>{{sum[4]}}</td>
+                <td style="text-align: center;">{{sumHundred[4]}}%</td>
+                <td>{{sumInterest[4]}}</td>
+            </tr>
+          </table>
+       
 
 
         <!-- <input type="file" accept=".csv" multiple (change) ="handleFileSelect($event)"> -->
