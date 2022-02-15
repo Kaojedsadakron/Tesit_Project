@@ -1,6 +1,6 @@
 <app-top-bar></app-top-bar>
 
-<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg');">
+<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg'); height: 100vh;">
 
     <div class="container text-center" style="padding-top: 50px; padding-bottom: 50px; color: whitesmoke;">
         
@@ -73,47 +73,47 @@
                 </tr>
             </tbody>                
         </div>     -->
-        <div>ผลการวิเคราะห์</div>
-        <div>{{dataWeek}} อาทิตย์</div>
+        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;">ผลการวิเคราะห์ ณ วันที่</div>
+        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;" >เฉลี่ย {{dataWeek}} อาทิตย์</div>
         <!-- <div><button (click)="getSumOfSubject()">Result</button></div> -->
 
 
 
-        <table>
-            <tr>
-              <th>วิชา</th>
-              <th>ผลวิเคราะห์</th>
-              <th>ร้อยละ(%)</th>
-              <th>แนมโน้ม</th>
+        <table style="margin-top: 10px; font-family: 'Kanit', sans-serif;" >
+            <tr >
+              <th style="text-align: center;">วิชา</th>
+              <th style="text-align: center;">ผลวิเคราะห์</th>
+              <th style="text-align: center;">ร้อยละ (%)</th>
+              <th style="text-align: center;">แนวโน้ม</th>
             </tr>
             <tr>
               <td>Information Technology Security</td>
               <td>{{sum[0]}}</td>
-              <td>{{sumHundred[0]}}%</td>
+              <td style="text-align: center;">{{sumHundred[0]}}%</td>
               <td>{{sumInterest[0]}}</td>
             </tr>
             <tr>
                 <td>Machine Learning</td>
                 <td>{{sum[1]}}</td>
-                <td>{{sumHundred[1]}}%</td>
+                <td style="text-align: center;">{{sumHundred[1]}}%</td>
                 <td>{{sumInterest[1]}}</td>
             </tr>
             <tr>
                 <td>Computer Architecture</td>
                 <td>{{sum[2]}}</td>
-                <td>{{sumHundred[2]}}%</td>
+                <td style="text-align: center;">{{sumHundred[2]}}%</td>
                 <td>{{sumInterest[2]}}</td>
             </tr>
             <tr>
                 <td>Microprocessor</td>
                 <td>{{sum[3]}}</td>
-                <td>{{sumHundred[3]}}%</td>
+                <td style="text-align: center;">{{sumHundred[3]}}%</td>
                 <td>{{sumInterest[3]}}</td>
             </tr>
             <tr>
                 <td>English For Work</td>
                 <td>{{sum[4]}}</td>
-                <td>{{sumHundred[4]}}%</td>
+                <td style="text-align: center;">{{sumHundred[4]}}%</td>
                 <td>{{sumInterest[4]}}</td>
             </tr>
           </table>
