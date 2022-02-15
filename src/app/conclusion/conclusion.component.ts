@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../service/crud.service';
 import { submission } from '../interface/submission';
+ 
 @Component({
 
   selector: 'app-conclusion',
@@ -9,6 +10,8 @@ import { submission } from '../interface/submission';
 })
 export class ConclusionComponent implements OnInit {
   data = [{}]
+  date = new Date();
+  showDate : any
   finalData: any
   sumSubmission = [0,0,0,0,0];
   score: any = [];
@@ -20,6 +23,11 @@ export class ConclusionComponent implements OnInit {
   constructor(private service: CrudService) { }
   ngOnInit(): void {
     this.getSumOfSubject();
+    this.showDate = this.date.toLocaleDateString('th-TH',{
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
   }
 
   getSumOfSubject() {
