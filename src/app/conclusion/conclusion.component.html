@@ -6,9 +6,9 @@
         
         <div style="font-size: 40px;">สรุปผลข้อมูล</div>
         <div class="profile-img text-center">
-            <img src="http://reg.pim.ac.th/studentimg/61/6152300100.jpg" alt="" width="150" height="180" style="margin-top: 30px;"/>
+            <!-- <img src="http://reg.pim.ac.th/studentimg/61/6152300100.jpg" alt="" width="150" height="180" style="margin-top: 30px;"/> -->
         </div>
-        <div style="text-align: -webkit-center; margin-top: 30px;;">
+        <!-- <div style="text-align: -webkit-center; margin-top: 30px;;">
             <tbody>
 
                 <tr border="0">
@@ -72,27 +72,52 @@
                     </td>
                 </tr>
             </tbody>                
-        </div>    
+        </div>     -->
+        <div>ผลการวิเคราะห์</div>
+        <div>{{dataWeek}} อาทิตย์</div>
+        <!-- <div><button (click)="getSumOfSubject()">Result</button></div> -->
 
-        <div><button (click)="getSumOfSubject()">Result</button></div>
 
-        <div>
-            Information Technology Security : {{sum[0]}}
-        </div>
 
-        <div>
-            Machine Learning : {{sum[1]}}
-        <div>
-            Computer Architecture : {{sum[2]}}
-        </div>
-
-        <div>
-            Microprocessor : {{sum[3]}}
-        </div>
-
-        <div>
-            English For Work : {{sum[4]}}
-        </div>
+        <table>
+            <tr>
+              <th>วิชา</th>
+              <th>ผลวิเคราะห์</th>
+              <th>ร้อยละ(%)</th>
+              <th>แนมโน้ม</th>
+            </tr>
+            <tr>
+              <td>Information Technology Security</td>
+              <td>{{sum[0]}}</td>
+              <td>{{sumHundred[0]}}%</td>
+              <td>{{sumInterest[0]}}</td>
+            </tr>
+            <tr>
+                <td>Machine Learning</td>
+                <td>{{sum[1]}}</td>
+                <td>{{sumHundred[1]}}%</td>
+                <td>{{sumInterest[1]}}</td>
+            </tr>
+            <tr>
+                <td>Computer Architecture</td>
+                <td>{{sum[2]}}</td>
+                <td>{{sumHundred[2]}}%</td>
+                <td>{{sumInterest[2]}}</td>
+            </tr>
+            <tr>
+                <td>Microprocessor</td>
+                <td>{{sum[3]}}</td>
+                <td>{{sumHundred[3]}}%</td>
+                <td>{{sumInterest[3]}}</td>
+            </tr>
+            <tr>
+                <td>English For Work</td>
+                <td>{{sum[4]}}</td>
+                <td>{{sumHundred[4]}}%</td>
+                <td>{{sumInterest[4]}}</td>
+            </tr>
+          </table>
+       
 
 
         <!-- <input type="file" accept=".csv" multiple (change) ="handleFileSelect($event)"> -->
