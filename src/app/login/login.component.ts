@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         }
       }
       if(!this.statuslogin){
-        alert("ไม่ได้")
+        alert("Your email or password is incorrect. Please try again.")
       }
     });
   }
