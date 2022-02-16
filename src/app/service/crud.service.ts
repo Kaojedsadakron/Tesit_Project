@@ -47,12 +47,13 @@ export class CrudService {
     return this.user
   }
 
-  async submitDoc(data: string) {
+  async submitDoc(data: string,idStudent:string) {
     const db = getFirestore();
     var ref = collection(db, "submission");
     const docRef = await addDoc(
       ref, {
-      data: data
+      data: data,
+      idStudent: idStudent
     }
     ).then(() => {
       alert("success");
@@ -127,6 +128,7 @@ export class CrudService {
       degree: "",
       earn_kit_score: "",
       email:"",
+      faculty:"",
       group:"",
       highschool_gaduate:"",
       highschool_gpax:"",

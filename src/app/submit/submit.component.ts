@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../service/crud.service' 
+import { students } from '../interface/student'
 declare var exportData: any;
 @Component({
   selector: 'app-submit',
@@ -15,10 +16,13 @@ subject2:any
 subject3:any
 subject4:any
 subject5:any
-
-  constructor(public crudService:CrudService) { }
+studentsLohin : students
+  constructor(public crudService:CrudService) {
+    this.studentsLohin = this.crudService.getStudentsLohin();
+   }
 
   ngOnInit(): void {
+
   }
 
   submit(){
@@ -34,7 +38,7 @@ subject5:any
         this.finaldata.push('1')
       }
     }
-    this.crudService.submitDoc(this.finaldata)
+    this.crudService.submitDoc(this.finaldata,this.studentsLohin.stuid)
     console.log(this.finaldata)
     this.finaldata = [];
     this.data = [];

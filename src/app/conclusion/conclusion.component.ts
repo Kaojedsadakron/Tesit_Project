@@ -82,8 +82,7 @@ export class ConclusionComponent implements OnInit {
         this.sumHundred.push(score[i]*10);
       }
     }
-    console.log('score ' + this.sum)
-    console.log('wwwwwww' + this.sumHundred)
+    
   }
 
 

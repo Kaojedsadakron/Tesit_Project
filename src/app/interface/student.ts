@@ -1,5 +1,6 @@
 export interface students {
     email:string;
+    faculty:string;
     name:string;
     password:string;
     advisor:string;
