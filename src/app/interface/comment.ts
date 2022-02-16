@@ -1,5 +1,5 @@
 export interface comment {
-    data:string;
+    comment:string;
     idStudent:string;
     date:string
 }

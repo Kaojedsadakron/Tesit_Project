@@ -57,6 +57,10 @@ export class CrudService {
     this.submission = submission
   }
 
+  setCommentString(Comment : any){
+    this.commentArray = Comment;
+  }
+
   getCommentString(): string {
     return JSON.stringify(this.commentArray)
   }
@@ -95,11 +99,11 @@ export class CrudService {
     const db = getFirestore();
     const q = query(collection(db, "comment"), where("idStudent", "==", Id));
     const querySnapshot = await getDocs(q);
-    let submission = [{}]
+    let Comment = [{}]
     querySnapshot.forEach((doc) => {
-      submission.push(doc.data() as submission)
+      Comment.push(doc.data() as comment)
     });
-    this.setSubmission(submission);
+    this.setCommentString(Comment);
 
     // return this.items
   }
@@ -216,7 +220,7 @@ export class CrudService {
   private setCommentNull(): comment[] {
     var commentArray: comment[] = [
       {
-        data: "",
+        comment: "",
         idStudent: "",
         date:""
       }

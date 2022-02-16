@@ -24,7 +24,7 @@ export class TrackingComponent implements OnInit {
     this.service.getComment(this.studentsLohin.stuid).then(res => {
       this.resArray = JSON.parse(this.clsString(this.service.getCommentString()))
       this.resArray.forEach(value => {
-        console.log("comment "+value)
+        console.log("comment "+value.comment)
       })
   
     })

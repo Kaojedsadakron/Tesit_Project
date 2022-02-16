@@ -37,6 +37,7 @@ export class ConclusionComponent implements OnInit {
   getSumOfSubject() {
     this.service.getFinaldata(this.studentsLohin.stuid).then(res => {
       this.resArray = JSON.parse(this.clsString(this.service.getSubmission()))
+      console.log("Subject : " , this.resArray)
       this.resArray.forEach(value => {
         for (let i = 0 ; i<value.data.length ; i++){
           this.sumSubmission[i] = +value.data[i] + this.sumSubmission[i]
