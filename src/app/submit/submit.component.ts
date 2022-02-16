@@ -8,6 +8,8 @@ declare var exportData: any;
   styleUrls: ['./submit.component.css']
 })
 export class SubmitComponent implements OnInit {
+showDate: any
+date = new Date();
 finaldata:any=[];
 data:any = [];
 dataaa:any = ['dont like','like']
@@ -22,8 +24,13 @@ studentsLohin : students
    }
 
   ngOnInit(): void {
-
+    this.showDate = this.date.toLocaleDateString('th-TH', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
   }
+  
 
   submit(){
     this.data.push(this.subject1)
@@ -31,6 +38,7 @@ studentsLohin : students
     this.data.push(this.subject3)
     this.data.push(this.subject4)
     this.data.push(this.subject5)
+    this.crudService.addComment(this.data,this.studentsLohin.stuid,this.showDate);
     for (let i = 0; i < 5; i++) {
       if(this.data[i].includes('dont like') || this.data[i].includes('don\'t like')|| this.data[i].includes('do not like') || this.data[i].includes('hate')|| this.data[i].includes('ไม่ชอบ')|| this.data[i].includes('ไม่น่าเรียน')|| this.data[i].includes('ไม่สนุก')|| this.data[i].includes('การบ้านเยอะ')){
         this.finaldata.push('0')

@@ -6,6 +6,7 @@ import { submission } from '../interface/submission'
 import { Observable } from 'rxjs';
 import { user } from '../interface/user';
 import { students } from '../interface/student'
+import { comment} from '../interface/comment'
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,14 @@ export class CrudService {
   user: Observable<any>;
   studentsLohin: students;
   submission: submission[]
+  commentArray:comment[];
 
   constructor(public firestoreService: AngularFirestore) {
     this.items = this.firestoreService.collection('submission').valueChanges();
     this.user = this.firestoreService.collection('student').valueChanges();
     this.studentsLohin = this.setStudentNull();
     this.submission = this.setSubmissionNull();
+    this.commentArray = this.setCommentNull();
   }
 
   //////////////////////////// insert
@@ -54,11 +57,26 @@ export class CrudService {
     this.submission = submission
   }
 
+  getCommentString(): string {
+    return JSON.stringify(this.commentArray)
+  }
+
   getSubmission(): string {
     return JSON.stringify(this.submission)
   }
 
-
+  async addComment(comment:comment,idStudent:string,date:string){
+    const db = getFirestore();
+    var ref = collection(db, "comment");
+    const docRef = await addDoc(
+      ref, {
+      comment: comment,
+      idStudent: idStudent,
+      date:date
+    }
+    ).then(() => {
+    })
+  }
 
   async submitDoc(data: string, idStudent: string) {
     const db = getFirestore();
@@ -72,6 +90,20 @@ export class CrudService {
       alert("success");
     })
   }
+
+  async getComment(Id: string) {
+    const db = getFirestore();
+    const q = query(collection(db, "comment"), where("idStudent", "==", Id));
+    const querySnapshot = await getDocs(q);
+    let submission = [{}]
+    querySnapshot.forEach((doc) => {
+      submission.push(doc.data() as submission)
+    });
+    this.setSubmission(submission);
+
+    // return this.items
+  }
+
 
   async getFinaldata(Id: string) {
     const db = getFirestore();
@@ -179,6 +211,17 @@ export class CrudService {
       }
     ]
     return submission
+  }
+
+  private setCommentNull(): comment[] {
+    var commentArray: comment[] = [
+      {
+        data: "",
+        idStudent: "",
+        date:""
+      }
+    ]
+    return commentArray
   }
 
 }
