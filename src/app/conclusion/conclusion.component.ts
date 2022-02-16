@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../service/crud.service';
 import { submission } from '../interface/submission';
- 
+import { students } from '../interface/student';
+
 @Component({
 
   selector: 'app-conclusion',
@@ -20,7 +21,10 @@ export class ConclusionComponent implements OnInit {
   sum: any = [];
   sumInterest:any = [];
   sumHundred:any = [];
-  constructor(private service: CrudService) { }
+  studentsLohin : students
+  constructor(private service: CrudService) { 
+    this.studentsLohin = this.service.getStudentsLohin();
+  }
   ngOnInit(): void {
     this.getSumOfSubject();
     this.showDate = this.date.toLocaleDateString('th-TH',{
@@ -31,16 +35,17 @@ export class ConclusionComponent implements OnInit {
   }
 
   getSumOfSubject() {
-    this.service.getFinaldata().subscribe(res => {
-      this.resArray = res
-      this.resArray.forEach(value => {
-        for (let i = 0 ; i<value.data.length ; i++){
-          this.sumSubmission[i] = +value.data[i] + this.sumSubmission[i]
-        }
-      })
-      this.dataWeek=this.resArray.length;
-      this.sumOfSubject(this.sumSubmission)
-    });
+    console.log(this.service.getFinaldata(this.studentsLohin.stuid))
+    // this.service.getFinaldata().subscribe(res => {
+    //   this.resArray = res
+    //   this.resArray.forEach(value => {
+    //     for (let i = 0 ; i<value.data.length ; i++){
+    //       this.sumSubmission[i] = +value.data[i] + this.sumSubmission[i]
+    //     }
+    //   })
+    //   this.dataWeek=this.resArray.length;
+    //   this.sumOfSubject(this.sumSubmission)
+    // });
 
   }
 

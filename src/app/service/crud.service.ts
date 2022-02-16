@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { getDatabase, ref, set } from "firebase/database";
-import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, getDocs } from 'firebase/firestore';
+import { getFirestore, doc,query, getDoc,where,setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, getDocs } from 'firebase/firestore';
 import { submission } from '../interface/submission'
 import { Observable } from 'rxjs';
 import { user } from '../interface/user';
@@ -53,15 +53,22 @@ export class CrudService {
     const docRef = await addDoc(
       ref, {
       data: data,
-      idStudent: idStudent
+      idStudent:idStudent
     }
     ).then(() => {
       alert("success");
     })
   }
 
-  getFinaldata(){
-    return this.items
+  async getFinaldata(Id:string){
+    const db = getFirestore();
+    const q = query(collection(db, "submission"), where("idStudent", "==", Id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+});
+    // return this.items
   }
 
   ////////////////////////////// get
