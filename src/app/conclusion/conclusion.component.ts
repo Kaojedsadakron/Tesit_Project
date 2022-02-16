@@ -95,7 +95,32 @@ export class ConclusionComponent implements OnInit {
     }
 
   }
-
+  check(point:number){
+    if(point ==100){
+      return 'rgb(10,254,47)'
+    }else
+    if(point ==90 || point ==80){
+      return 'rgb(88,255,9)'
+    }else
+    if(point ==70 || point ==60){
+      return 'rgb(171,255,9)'
+    }else
+    if(point ==50 || point==40){
+      return 'rgb(243,254,64)'
+    }else
+    if(point ==30 || point ==20){
+      return 'rgb(255,171,46)'
+    }else
+    if(point == 10){
+      return 'rgb(255,73,33)'
+    }else 
+    if(point == 0){
+      return 'rgb(255,0,30)'
+    
+  }else {
+    return ''
+  }
+  }
 
 
 

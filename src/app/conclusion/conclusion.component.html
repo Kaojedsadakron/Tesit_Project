@@ -1,6 +1,6 @@
 <app-top-bar></app-top-bar>
 
-<div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg'); height: 100vh; position: fixed; width: 100%; overflow: auto;">
+<div class="content" style="background-image: url('https://cdn.wallpapersafari.com/26/60/JEfZtU.jpg'); height: 100vh; position: fixed; width: 100%; overflow: auto;">
 
     <div class="container text-center" style="padding-top: 30px; padding-bottom: 100px; color: whitesmoke;">
 
@@ -91,31 +91,31 @@
             <tr>
                 <td>Information Technology Security</td>
                 <td>{{sum[0]}}</td>
-                <td style="text-align: center;">{{sumHundred[0]}}%</td>
+                <td style="text-align: center;color: rgb(29, 29, 29);" [ngStyle]="{'background-color': check(sumHundred[0])}">{{sumHundred[0]}}%</td>
                 <td>{{sumInterest[0]}}</td>
             </tr>
             <tr>
                 <td>Machine Learning</td>
                 <td>{{sum[1]}}</td>
-                <td style="text-align: center;">{{sumHundred[1]}}%</td>
+                <td style="text-align: center;color: rgb(29, 29, 29);" [ngStyle]="{'background-color': check(sumHundred[1])}">{{sumHundred[1]}}%</td>
                 <td>{{sumInterest[1]}}</td>
             </tr>
             <tr>
                 <td>Computer Architecture</td>
                 <td>{{sum[2]}}</td>
-                <td style="text-align: center;">{{sumHundred[2]}}%</td>
+                <td style="text-align: center;color: rgb(29, 29, 29);" [ngStyle]="{'background-color': check(sumHundred[2])}">{{sumHundred[2]}}%</td>
                 <td>{{sumInterest[2]}}</td>
             </tr>
             <tr>
                 <td>Microprocessor</td>
                 <td>{{sum[3]}}</td>
-                <td style="text-align: center;">{{sumHundred[3]}}%</td>
+                <td style="text-align: center;color: rgb(29, 29, 29);" [ngStyle]="{'background-color': check(sumHundred[3])}">{{sumHundred[3]}}%</td>
                 <td>{{sumInterest[3]}}</td>
             </tr>
             <tr>
                 <td>English For Work</td>
                 <td>{{sum[4]}}</td>
-                <td style="text-align: center;">{{sumHundred[4]}}%</td>
+                <td style="text-align: center;color: rgb(29, 29, 29);" [ngStyle]="{'background-color': check(sumHundred[4])}">{{sumHundred[4]}}%</td>
                 <td>{{sumInterest[4]}}</td>
             </tr>
         </table>
