@@ -2,13 +2,13 @@
 
 <div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg'); height: 100vh; position: fixed; width: 100%; overflow: auto;">
 
-    <div class="container text-center" style="padding-top: 30px; padding-bottom: 50px; color: whitesmoke;">
+    <div class="container text-center" style="padding-top: 30px; color: whitesmoke;">
 
         <div style="font-size: 40px;">ติดตามการลงข้อมูล</div>
         <div class="profile-img text-center">
         </div>
     </div>
-    <div *ngFor="let item of resArray"  style="color: whitesmoke; display: flex; align-items: center; flex-direction: column; ">
+    <div *ngFor="let item of resArray"  style="color: whitesmoke; display: flex; align-items: center; flex-direction: column; margin-bottom: 100px; ">
         <div style="margin-top: 15px; font-size: 20px; text-align: left; width: 80%;">ข้อมูล ณ วันที่ {{item.date}}</div>
         <table style="margin-top: 10px; font-family: 'Kanit', sans-serif; width: 80%;" >
             <tr >
