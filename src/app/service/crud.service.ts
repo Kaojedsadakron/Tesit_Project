@@ -5,15 +5,19 @@ import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, delet
 import { submission } from '../interface/submission'
 import { Observable } from 'rxjs';
 import { user } from '../interface/user';
+import { students } from '../interface/student'
+
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
   items: Observable<any>;
   user: Observable<any>;
+  studentsLohin : students;
   constructor(public firestoreService: AngularFirestore) { 
     this.items = this.firestoreService.collection('submission').valueChanges();
     this.user = this.firestoreService.collection('student').valueChanges();
+    this.studentsLohin = this.setStudentNull();
   }
 
   //////////////////////////// insert
@@ -29,6 +33,14 @@ export class CrudService {
     ).then(() => {
       alert("success");
     })
+  }
+
+  setStudentsLohin(studentsLohin:students){
+    this.studentsLohin = studentsLohin
+  }
+
+  getStudentsLohin() : students{
+    return this.studentsLohin
   }
 
   getStudent() {
@@ -107,6 +119,32 @@ export class CrudService {
 
     return statuslogin
 
+  }
+
+  private setStudentNull() : students{
+    var stu : students = {
+      advisor: "",
+      degree: "",
+      earn_kit_score: "",
+      email:"",
+      group:"",
+      highschool_gaduate:"",
+      highschool_gpax:"",
+      id:"",
+      img:"",
+      kit_score:"",
+      major:"",
+      name:"",
+      name_degree:"",
+      name_eng:"",
+      password:"",
+      start:"",
+      status:"",
+      stuid:"",
+      university:"",
+      university_gpax:""
+    }
+    return stu
   }
 
 }

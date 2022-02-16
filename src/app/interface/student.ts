@@ -2,4 +2,21 @@ export interface students {
     email:string;
     name:string;
     password:string;
+    advisor:string;
+    degree:string;
+    earn_kit_score:string;
+    group:string;
+    highschool_gaduate:string;
+    highschool_gpax:string;
+    id:string;
+    img:string;
+    kit_score:string;
+    major:string;
+    name_degree:string;
+    name_eng:string;
+    start:string;
+    status:string;
+    stuid:string;
+    university:string;
+    university_gpax:string;
 }

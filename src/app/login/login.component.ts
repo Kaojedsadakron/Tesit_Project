@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   email: any
   password: any
   statuslogin : boolean = false
+  studentLogin : students | undefined
 
   constructor(
     private service: CrudService,
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
         if(Students[i].email == email && Students[i].password == password){
           this.statuslogin  = true
           this.router.navigate(["/profile"])
+          this.studentLogin = Students[i] as students
           break;
         }else{
           this.statuslogin  = false
@@ -34,6 +36,8 @@ export class LoginComponent implements OnInit {
       }
       if(!this.statuslogin){
         alert("Your email or password is incorrect. Please try again.")
+      }else{
+        this.service.setStudentsLohin(this.studentLogin!!);
       }
     });
   }
