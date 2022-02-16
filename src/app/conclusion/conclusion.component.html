@@ -3,7 +3,7 @@
 <div class="content" style="background-image: url('https://wallpaperaccess.com/full/24866.jpg'); height: 100vh;">
 
     <div class="container text-center" style="padding-top: 30px; padding-bottom: 50px; color: whitesmoke;">
-        
+
         <div style="font-size: 40px;">สรุปผลข้อมูล</div>
         <div class="profile-img text-center">
             <!-- <img src="http://reg.pim.ac.th/studentimg/61/6152300100.jpg" alt="" width="150" height="180" style="margin-top: 30px;"/> -->
@@ -73,24 +73,26 @@
                 </tr>
             </tbody>                
         </div>     -->
-        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;">ผลการวิเคราะห์ ณ วันที่ {{showDate}}</div>
-        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;" >เฉลี่ย {{dataWeek}} อาทิตย์</div>
+        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;">ผลการวิเคราะห์ ณ วันที่
+            {{showDate}}</div>
+        <div style="text-align: left; font-size: 22px; font-family: 'Kanit', sans-serif;">เฉลี่ย {{dataWeek}} อาทิตย์
+        </div>
         <!-- <div><button (click)="getSumOfSubject()">Result</button></div> -->
 
 
 
-        <table style="margin-top: 10px; font-family: 'Kanit', sans-serif;" >
-            <tr >
-              <th style="text-align: center;">วิชา</th>
-              <th style="text-align: center;">ผลวิเคราะห์</th>
-              <th style="text-align: center;">ร้อยละ (%)</th>
-              <th style="text-align: center;">แนวโน้ม</th>
+        <table style="margin-top: 10px; font-family: 'Kanit', sans-serif;">
+            <tr>
+                <th style="text-align: center;">วิชา</th>
+                <th style="text-align: center;">ผลวิเคราะห์</th>
+                <th style="text-align: center;">ร้อยละ (%)</th>
+                <th style="text-align: center;">แนวโน้ม</th>
             </tr>
             <tr>
-              <td>Information Technology Security</td>
-              <td>{{sum[0]}}</td>
-              <td style="text-align: center;">{{sumHundred[0]}}%</td>
-              <td>{{sumInterest[0]}}</td>
+                <td>Information Technology Security</td>
+                <td>{{sum[0]}}</td>
+                <td style="text-align: center;">{{sumHundred[0]}}%</td>
+                <td>{{sumInterest[0]}}</td>
             </tr>
             <tr>
                 <td>Machine Learning</td>
@@ -116,12 +118,12 @@
                 <td style="text-align: center;">{{sumHundred[4]}}%</td>
                 <td>{{sumInterest[4]}}</td>
             </tr>
-          </table>
-       
+        </table>
+
 
 
         <!-- <input type="file" accept=".csv" multiple (change) ="handleFileSelect($event)"> -->
 
 
-       
-</div>
+
+    </div>
