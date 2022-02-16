@@ -10,8 +10,10 @@ import { user } from '../interface/user';
 })
 export class CrudService {
   items: Observable<any>;
+  user: Observable<any>;
   constructor(public firestoreService: AngularFirestore) { 
     this.items = this.firestoreService.collection('submission').valueChanges();
+    this.user = this.firestoreService.collection('student').valueChanges();
   }
 
   //////////////////////////// insert
@@ -27,6 +29,10 @@ export class CrudService {
     ).then(() => {
       alert("success");
     })
+  }
+
+  getStudent() {
+    return this.user
   }
 
   async submitDoc(data: string) {
@@ -51,16 +57,11 @@ export class CrudService {
     let data = [{}]
     const docSnap = await getDocs(collection(db, "submission"));
     docSnap.forEach((doc) => {
-      // data.push(doc.data() as user)
-      // data.forEach((user) => {
-      //   console.log(user)
-      // });
 
       let y = JSON.stringify(doc.data())
 
       let obj = JSON.parse(y);
       data.push(obj)
-      //console.log(obj)
 
     }); //console.log(data)
     let Arrayobjdata : submission [] = []
@@ -75,14 +76,9 @@ export class CrudService {
   /////////////////////////////////login
   async login(email: any, password: any) {
     const db = getFirestore();
-    let data = [{}]
     let statuslogin: number = 0
     const docSnap = await getDocs(collection(db, "user"));
     docSnap.forEach((doc) => {
-      // data.push(doc.data() as user)
-      // data.forEach((user) => {
-      //   console.log(user)
-      // });
 
       let y = JSON.stringify(doc.data())
 

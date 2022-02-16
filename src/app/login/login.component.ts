@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../service/crud.service';
+import { students} from '../interface/student'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -9,27 +11,30 @@ import { CrudService } from '../service/crud.service';
 export class LoginComponent implements OnInit {
   email: any
   password: any
+  statuslogin : boolean = false
 
-  constructor(private service: CrudService) { }
+  constructor(
+    private service: CrudService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login(email: string, password: string) {
-    let x = this.service.login(email, password)
-    let x1 = JSON.stringify(x)
-    let y = this.service.logincheck()
-    let y1 = JSON.stringify(y)
-    const values = Object.values(x);
-
-    // const commaJoinedValues = values.join(",");
-    // console.log(commaJoinedValues);
-    console.log("login ", x1)
-    console.log("login ", y1)
-    if (x1 == y1) {
-      console.log("failLogin")
-    } else {
-      console.log("successlogin")
-    }
+    this.service.getStudent().subscribe(students => {
+      let Students : students[] = students
+      for(let i = 0 ; i < Students.length ; i++){
+        if(Students[i].email == email && Students[i].password == password){
+          this.statuslogin  = true
+          this.router.navigate(["/profile"])
+          break;
+        }else{
+          this.statuslogin  = false
+        }
+      }
+      if(!this.statuslogin){
+        alert("Your email or password is incorrect. Please try again.")
+      }
+    });
   }
 }

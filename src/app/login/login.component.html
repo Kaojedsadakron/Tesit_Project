@@ -17,18 +17,12 @@
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating" style="margin-bottom: 15px;">
-                <input type="" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
                 <label for="floatingPassword">Password</label>
             </div>
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                    <a style="margin-left: 10px;" href="http://reg.pim.ac.th/registrar/login.asp">Forgot password</a>
-                </label>
-            </div>
             
-            <button routerLink="/profile" class="btn btn-lg btn-primary" type="submit" (click)="login(email,password)" style="width: 50%;">LOGIN</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="login(email,password)">LOGIN</button>
+
         </div>
     </main>
 </body>
