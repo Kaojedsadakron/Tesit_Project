@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { getDatabase, ref, set } from "firebase/database";
-import { getFirestore, doc,query, getDoc,where,setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, query, getDoc, where, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, getDocs } from 'firebase/firestore';
 import { submission } from '../interface/submission'
 import { Observable } from 'rxjs';
 import { user } from '../interface/user';
@@ -13,11 +13,14 @@ import { students } from '../interface/student'
 export class CrudService {
   items: Observable<any>;
   user: Observable<any>;
-  studentsLohin : students;
-  constructor(public firestoreService: AngularFirestore) { 
+  studentsLohin: students;
+  submission: submission[]
+
+  constructor(public firestoreService: AngularFirestore) {
     this.items = this.firestoreService.collection('submission').valueChanges();
     this.user = this.firestoreService.collection('student').valueChanges();
     this.studentsLohin = this.setStudentNull();
+    this.submission = this.setSubmissionNull();
   }
 
   //////////////////////////// insert
@@ -35,11 +38,11 @@ export class CrudService {
     })
   }
 
-  setStudentsLohin(studentsLohin:students){
+  setStudentsLohin(studentsLohin: students) {
     this.studentsLohin = studentsLohin
   }
 
-  getStudentsLohin() : students{
+  getStudentsLohin(): students {
     return this.studentsLohin
   }
 
@@ -47,27 +50,39 @@ export class CrudService {
     return this.user
   }
 
-  async submitDoc(data: string,idStudent:string) {
+  setSubmission(submission: any) {
+    this.submission = submission
+  }
+
+  getSubmission(): string {
+    return JSON.stringify(this.submission)
+  }
+
+
+
+  async submitDoc(data: string, idStudent: string) {
     const db = getFirestore();
     var ref = collection(db, "submission");
     const docRef = await addDoc(
       ref, {
       data: data,
-      idStudent:idStudent
+      idStudent: idStudent
     }
     ).then(() => {
       alert("success");
     })
   }
 
-  async getFinaldata(Id:string){
+  async getFinaldata(Id: string) {
     const db = getFirestore();
     const q = query(collection(db, "submission"), where("idStudent", "==", Id));
     const querySnapshot = await getDocs(q);
+    let submission = [{}]
     querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-});
+      submission.push(doc.data() as submission)
+    });
+    this.setSubmission(submission);
+
     // return this.items
   }
 
@@ -84,8 +99,8 @@ export class CrudService {
       data.push(obj)
 
     }); //console.log(data)
-    let Arrayobjdata : submission [] = []
-    for (let i = 0 ; i<data.length ;i++) {
+    let Arrayobjdata: submission[] = []
+    for (let i = 0; i < data.length; i++) {
       let objdata = JSON.parse(JSON.stringify(data[i])) as submission;
       Arrayobjdata.push(objdata)
     }
@@ -129,31 +144,41 @@ export class CrudService {
 
   }
 
-  private setStudentNull() : students{
-    var stu : students = {
+  private setStudentNull(): students {
+    var stu: students = {
       advisor: "",
       degree: "",
       earn_kit_score: "",
-      email:"",
-      faculty:"",
-      group:"",
-      highschool_gaduate:"",
-      highschool_gpax:"",
-      id:"",
-      img:"",
-      kit_score:"",
-      major:"",
-      name:"",
-      name_degree:"",
-      name_eng:"",
-      password:"",
-      start:"",
-      status:"",
-      stuid:"",
-      university:"",
-      university_gpax:""
+      email: "",
+      faculty: "",
+      group: "",
+      highschool_gaduate: "",
+      highschool_gpax: "",
+      id: "",
+      img: "",
+      kit_score: "",
+      major: "",
+      name: "",
+      name_degree: "",
+      name_eng: "",
+      password: "",
+      start: "",
+      status: "",
+      stuid: "",
+      university: "",
+      university_gpax: ""
     }
     return stu
+  }
+
+  private setSubmissionNull(): submission[] {
+    var submission: submission[] = [
+      {
+        data: "",
+        idStudent: ""
+      }
+    ]
+    return submission
   }
 
 }

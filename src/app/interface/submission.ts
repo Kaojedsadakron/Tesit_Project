@@ -1,3 +1,4 @@
 export interface submission {
-    data:string
+    data:string;
+    idStudent:string;
 }
